@@ -1252,18 +1252,18 @@ static bool get_arg_flag(const char *flag, int *argc, char **argv)
     return false;
 }
 
-static const char *get_arg_option(const char *option, int *argc, char **argv)
-{
-    for (unsigned i = 1; i < *argc - 1; i++) {
-        if (strcmp(argv[i], option) == 0) {
-            const char *ret = argv[i + 1];
-            memmove(argv + i, argv + i + 2, (*argc - i - 2) * sizeof(argv[0]));
-            (*argc) -= 2;
-            return ret;
-        }
-    }
-    return NULL;
-}
+// static const char *get_arg_option(const char *option, int *argc, char **argv)
+// {
+//     for (unsigned i = 1; i < *argc - 1; i++) {
+//         if (strcmp(argv[i], option) == 0) {
+//             const char *ret = argv[i + 1];
+//             memmove(argv + i, argv + i + 2, (*argc - i - 2) * sizeof(argv[0]));
+//             (*argc) -= 2;
+//             return ret;
+//         }
+//     }
+//     return NULL;
+// }
 
 #ifdef __APPLE__
 #include <CoreFoundation/CoreFoundation.h>
@@ -1375,7 +1375,7 @@ int main(int argc, char **argv)
     enable_smooth_scrolling();
 #endif
 
-    const char *model_string = get_arg_option("--model", &argc, argv);
+    const char *model_string = "sgb-ntsc";
     bool fullscreen = get_arg_flag("--fullscreen", &argc, argv) || get_arg_flag("-f", &argc, argv);
     bool nogl = get_arg_flag("--nogl", &argc, argv);
     stop_on_start = get_arg_flag("--stop-debugger", &argc, argv) || get_arg_flag("-s", &argc, argv);

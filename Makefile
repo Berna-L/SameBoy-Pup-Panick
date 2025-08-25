@@ -167,6 +167,7 @@ IOS_MIN := 11.0
 
 IOS_PNGS := $(shell ls iOS/*.png iOS/*.car)
 # Support out-of-PATH RGBDS
+RGBDS	:= rgbds-macos/
 RGBASM  := $(RGBDS)rgbasm
 RGBLINK := $(RGBDS)rgblink
 RGBGFX  := $(RGBDS)rgbgfx
