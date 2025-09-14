@@ -167,7 +167,6 @@ IOS_MIN := 11.0
 
 IOS_PNGS := $(shell ls iOS/*.png iOS/*.car)
 # Support out-of-PATH RGBDS
-RGBDS	:= rgbds-macos/
 RGBASM  := $(RGBDS)rgbasm
 RGBLINK := $(RGBDS)rgblink
 RGBGFX  := $(RGBDS)rgbgfx
@@ -698,7 +697,7 @@ endif
 # Copy required DLL files for the Windows port
 $(BIN)/SDL/%.dll:
 	-@$(MKDIR) -p $(dir $@)
-	@$(eval MATCH := $(shell where "$(lib)":$(notdir $@)))
+	@$(eval MATCH := $(shell where "$(LIB)":$(notdir $@)))
 	cp "$(MATCH)" $@
 
 # Tester
